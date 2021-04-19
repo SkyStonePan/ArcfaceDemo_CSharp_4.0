@@ -90,7 +90,6 @@
     <Compile Include="Entity\MultiFaceInfo.cs" />
     <Compile Include="Entity\SDKVersion.cs" />
     <Compile Include="Entity\SingleFaceInfo.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FaceEngine.cs" />
     <Compile Include="SDKModels\ASF_ActiveFileInfo.cs" />
