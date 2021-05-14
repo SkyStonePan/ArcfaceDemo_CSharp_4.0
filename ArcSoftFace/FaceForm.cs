@@ -1799,11 +1799,11 @@ namespace ArcSoftFace
             bool isIdMode = compareModel.Equals(ASF_CompareModel.ASF_ID_PHOTO);
             if (isIdMode)
             {
-                compareModel = ASF_CompareModel.ASF_LIFE_PHOTO;
+                compareModel = ASF_CompareModel.ASF_ID_PHOTO;
             }
             else
             {
-                compareModel = ASF_CompareModel.ASF_ID_PHOTO;
+                compareModel = ASF_CompareModel.ASF_LIFE_PHOTO;
             }
             AppendText(string.Format("当前比对模式:{0}" , isIdMode ? "ASF_ID_PHOTO" : "ASF_LIFE_PHOTO"));
         }
