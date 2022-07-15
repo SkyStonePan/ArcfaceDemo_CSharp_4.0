@@ -1074,7 +1074,12 @@ namespace ArcSoftFace
                             continue;
                         }
                         List<int> faceIdList = new List<int>();
-                        faceIdList.AddRange(rgbLivenessTryDict.GetAllElement().Keys);
+                        //faceIdList.AddRange(rgbLivenessTryDict.GetAllElement().Keys);
+                        //这一句有一定的几率引发异常：其他信息: 目标数组的长度不足,无法复制集合中的所有项。请检查数组索引和长度。
+                        Dictionary<int,int> _keys = new Dictionary<int, int>(rgbLivenessTryDict.GetAllElement());
+                        faceIdList.AddRange(_keys.Keys);
+                        //采用先复制一次字典，再取keys，屏蔽了这个异常，可以测试有没有性能损耗，或者采用别的办法避免异常
+
                         //遍历人脸Id，进行活体检测
                         foreach (int tempFaceId in faceIdList)
                         {
@@ -1177,7 +1182,12 @@ namespace ArcSoftFace
                             continue;
                         }
                         List<int> faceIdList = new List<int>();
-                        faceIdList.AddRange(rgbFeatureTryDict.GetAllElement().Keys);
+                        //faceIdList.AddRange(rgbFeatureTryDict.GetAllElement().Keys);
+                        //上面这一句有一定的几率引发异常：其他信息: 目标数组的长度不足,无法复制集合中的所有项。请检查数组索引和长度。
+                        Dictionary<int,int> _keys = new Dictionary<int, int>(rgbFeatureTryDict.GetAllElement());
+                        faceIdList.AddRange(_keys.Keys);
+                        //采用先复制一次字典，再取keys，屏蔽了这个异常，可以测试有没有性能损耗，或者采用别的办法避免异常
+
                         foreach (int tempFaceId in faceIdList)
                         {
                             //待处理队列中不存在，移除
